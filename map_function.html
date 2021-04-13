@@ -5,18 +5,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-
     <script src="./movies.js"></script>
     <script type="text/javascript">
-        function check(movie, index) {
-            
-            return movie.title === document.getElementById("mov").value;
-        } 
-        function myFunction () {
-            var x = movies.find(check);
-            return document.getElementById("myText").innerHTML = x.cast;
-            // return document.getElementById("myText").innerHTML = "item";
+        
+        function mapit (item) {
+            var name = [item.title];
+            return name;
         }
+
+        function myFunction () {
+            console.log(movies.map(mapit));
+            document.getElementById("myText").innerHTML = movies.map(mapit);
+        }
+        
     </script>
 </head>
 <body>
