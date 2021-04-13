@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./movies.js"></script>
+    <script>
+        function actor (item) {
+            for (i in item.cast) {
+                return item.cast[i] == document.getElementById("mov").value;
+            }
+        }   
+
+        function myFunction () {
+            console.log(movies.some(actor));
+            document.getElementById("myText").innerHTML = movies.some(actor);
+        }
+    </script>
+</head>
+<body>
+    <p>code for finding out if actor exist from the list:  <span id="myText"></span></p>
+    <input type="text" id="mov" placeholder="type actor name"></input>
+    <button type="button" onclick="myFunction()">click here</button>
+</body>
+</html>
