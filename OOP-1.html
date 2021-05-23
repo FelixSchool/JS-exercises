@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./movies.js"></script>
+    <script type="text/javascript">
+    maxi = [];
+    ln=[];
+
+    function myFunction() {
+        ln = movies.map(function(item){
+            return item.cast.length;
+        });
+        console.log(ln);
+
+        x = ln.reduce(function(a,b){
+            return Math.max(a,b);
+        });
+        console.log(x);
+
+        y = ln.indexOf(x);
+        console.log(y);
+
+        document.getElementById("myText").innerHTML = movies[y].title;
+        console.log(movies[3214].cast);
+
+    };
+    </script>
+</head>
+<body>
+    <p>code for finding out movie title with max cast members: <span id="myText"></span></p>
+    <!-- <input type="text" id="mov" placeholder="type movie name"> -->
+    <button type="button" onclick="myFunction()">click here</button>
+
+    
+</body>
+</html>
