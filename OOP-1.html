@@ -9,9 +9,16 @@
     <script type="text/javascript">
     maxi = [];
     ln=[];
+    let x;
+    let y;
 
-    function myFunction() {
-        ln = movies.map(function(item){
+    class MaxCast {
+        constructor (moviesList){
+            this.moviesList = moviesList;
+        };
+
+        FindCastNum() {
+            ln = this.moviesList.map(function(item){
             return item.cast.length;
         });
         console.log(ln);
@@ -23,11 +30,40 @@
 
         y = ln.indexOf(x);
         console.log(y);
-
-        document.getElementById("myText").innerHTML = movies[y].title;
-        console.log(movies[3214].cast);
-
+        
+        return y;
+            
+        };
     };
+
+    
+
+    function myFunction(){
+        let myCode = new MaxCast(movies);
+        z=myCode.FindCastNum();
+
+        document.getElementById("myText").innerHTML = movies[z].title;
+        // console.log(movies[3214].cast);
+    }
+
+    // function myFunction() {
+    //     ln = movies.map(function(item){
+    //         return item.cast.length;
+    //     });
+    //     console.log(ln);
+
+    //     x = ln.reduce(function(a,b){
+    //         return Math.max(a,b);
+    //     });
+    //     console.log(x);
+
+    //     y = ln.indexOf(x);
+    //     console.log(y);
+
+    //     document.getElementById("myText").innerHTML = movies[y].title;
+    //     console.log(movies[3214].cast);
+
+    // };
     </script>
 </head>
 <body>
