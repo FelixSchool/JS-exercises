@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./movies.js"></script>
+    <script>
+        function myFunction() {
+            let freq=[];
+            let count=0;
+            let i=0;
+            let j=0;
+
+            let arr=[];
+            for (i in movies) {
+                y=movies[i].year;
+                arr.push(y);
+            }
+
+            console.log(arr);
+            let a = arr.reduce(function(a,b){
+                return Math.max(a,b);
+            });
+            console.log(a);
+
+            let b= arr.reduce(function(a,b){
+                return Math.min(a,b);
+            });
+            console.log(b);
+
+            for (i=b;i<a;i++){  
+                
+                movies.forEach(function(item){
+                    if(item.year===i){
+                        count++;
+                    }
+                });
+                freq.push(count);
+                count=0;
+            }
+            
+            
+            console.log(count);
+            // console.log(movies.length);
+            
+            console.log(freq);
+            y=freq.reduce(function(a,b){
+                return Math.max(a,b);
+            })
+            console.log(y);
+
+            z=freq.indexOf(y);
+            console.log(z);
+            return document.getElementById("myText").innerHTML = z+b;
+        }
+    </script>
+</head>
+<body>
+    <p>code for finding out year with max numbers of movies: <span id="myText"></span></p>
+    <!-- <input type="text" id="mov" placeholder="type movie name"> -->
+    <button type="button" onclick="myFunction()">click here</button>
+</body>
+</html>
