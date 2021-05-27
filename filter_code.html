@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./movies.js"></script>
+    <script>
+        function year (item, index) {
+            return item.year == document.getElementById("mov").value;
+            
+        }
+
+        function myFunction () {
+            var x = movies.filter(year);
+            
+            var y = [];
+
+            for (i=0; i<x.length; i++) {
+                y.push(x[i].title);
+            };
+
+            console.log(y);
+            
+
+            document.getElementById("myText").innerHTML = y;
+        }
+        
+    </script>
+</head>
+<body>
+    <p>code for finding out movie title:  <span id="myText"></span></p>
+    <input type="number" id="mov" placeholder="type movie year"></input>
+    <button type="button" onclick="myFunction()">click here</button>
+</body>
+</html>

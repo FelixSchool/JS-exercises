@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./movies.js"></script>
+    <script>
+        var x = [];
+        function cast(item) {
+            var a = (item.cast.length);
+            x.push(a);
+        }
+
+        function myFunction () {
+            console.log(x);
+            var y = movies.map(cast);
+            var z = Math.min(y);
+            console.log(z);
+        }
+    </script>
+</head>
+<body>
+    <p>code for finding out if actor exist from the list:  <span id="myText"></span></p>
+    <input type="text" id="mov" placeholder="type actor name"></input>
+    <button type="button" onclick="myFunction()">click here</button>
+</body>
+</html>

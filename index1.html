@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="./movies.js"></script>
+    <script type="text/javascript">
+        function check(movie, index) {
+            
+            return movie.title === document.getElementById("mov").value;
+        } 
+        function myFunction () {
+            var x = movies.find(check);
+            return document.getElementById("myText").innerHTML = x.cast;
+            // return document.getElementById("myText").innerHTML = "item";
+        }
+    </script>
+</head>
+<body>
+    <p>code for finding out movie title<span id="myText"></span></p>
+    <input type="text" id="mov" placeholder="type movie name">
+    <button type="button" onclick="myFunction()">click here</button>
+</body>
+</html>
