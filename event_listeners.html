@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        function delFunc(){
+            console.log("delete");
+            document.getElementById('li').addEventListener('click',function(e)
+            {
+                console.log(e);
+                let variable = e.target;
+                variable.remove();
+                
+            });
+        //     document.getElementById('new').addEventListener('click',function(e)
+        //     {
+        //         console.log(e);
+        //         let variable2 = e.target;
+        //         variable2.remove();
+        //     });
+        }
+
+        function y(){
+        let x = document.getElementById("textbox").value;
+        console.log(x);
+        let spn = document.createElement('span');
+        
+        let element = document.createElement('li');
+        let del = document.createElement('button');
+        del.setAttribute('float','right');
+        del.setAttribute('onclick','delFunc()');
+        del.id = 'btn';
+        del.innerText='delete';
+        console.log(del);
+        element.id = 'new';
+        element.innerText = x;
+        let ul = document.querySelector('ul.this');
+        
+        spn.appendChild(del);
+        // // ul.appendChild(spn);
+        // element.prepend(spn);
+        ul.before(element, spn);
+        
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <h1>Code for to-do-list:</h1>
+    </div>
+    <div>
+        <span>
+            <input type="text" id="textbox" placeholder="put your task here">
+        </span>
+        <span>
+            <button type="submit" onclick="y()">Submit</button>
+        </span>
+    </div>
+    <div>
+        <ul class="this" id="thiss">
+
+        </ul>
+    </div>
+    
+</body>
+</html>
