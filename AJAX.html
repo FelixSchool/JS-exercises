@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    <h1>This is AJAX tut</h1>
+    <button type="button" id="fetchbtn">Fetch</button>
+    <button type="button" id="backup">Back up</button>
+
+    <div>Employee data</div>
+    <ul id="list">
+
+    </ul>
+
+
+    <script>
+        let fetchbtnn = document.getElementById('fetchbtn');
+        fetchbtnn.addEventListener('click',buttonClickHandler)
+
+        function buttonClickHandler(){
+            console.log("fetch is clicked");
+
+            //initiate the fetch
+            const xhr = new XMLHttpRequest();
+
+            //open the object
+            xhr.open('GET','https://jsonplaceholder.typicode.com/posts',true);
+            // xhr.getResponseHeader('content-type','application/json');
+
+            //on progress
+            xhr.onprogress = function(){
+                console.log("under progress");
+            }
+
+            console.log("somethinf")
+
+            //after loading
+            xhr.onload = function(){
+                if (this.status === 200){
+                    // console.log(this.responseText);
+                    let obj = JSON.parse(this.responseText);
+                    console.log(obj);
+                    // let ele = document.createElement('li');
+                    // ele.innerText=obj;
+                    // let ul=document.querySelector('ul.this');
+                    // ul.appendChild(ele);
+
+                    let str=""
+                    for (i in obj)
+                    {
+                        str += `<li>${obj[i].title}</li>`;
+                    }
+                    list.innerHTML = str;
+                    
+                }
+                else
+                {
+                    console.log("error occured");
+                }
+            }
+            
+            xhr.send();
+        }
+    </script>
+</body>
+</html>

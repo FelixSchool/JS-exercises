@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        callback functions
+        <button type="button" onclick="myFunc()">press for action</button>
+    </h1>
+    <script>
+        // function myFunction() {
+        let data = [
+            {name:'Rahul', age:12},
+            {name:'Umesh', age:15},
+        ];
+
+        x = {name:'hasmukh',age:25};
+        // console.log(data);
+
+        function myFunc(){
+
+        function addStudent(student) {
+            return new Promise(function(resolve, reject){
+            setTimeout(() => {
+                data.push(student);
+                console.log("student has been added");
+                const error=false;
+                if (!error) {
+                    resolve();
+                }
+                else{
+                    reject();
+                }
+            }, 3000);
+            })
+        }
+
+        function populate(){
+            setTimeout(() => {
+                console.log(data);    
+            }, 3000);
+            
+        }
+
+        addStudent(x).then(populate).catch(function(){
+            console.log("error occured");
+        });
+
+    }
+        
+    </script>
+</body>
+</html>

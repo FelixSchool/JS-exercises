@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Task for fetching data from SWAPI API</h1>
+    <button type="submit" id="btn" onclick="myFunc()">Fetch SWAPI data</button>
+    <div class="this">
+        <h3>List of Actors:</h3>
+        <ul id="content">
+
+        </ul>
+    </div>
+    <script>
+        function myFunc(){
+
+        
+        
+        async function getData(){
+            const response = await fetch('https://swapi.dev/api/people/');
+            const data = await response.json();
+            return data;
+        }
+
+        let str='';
+
+        getData().then((data)=>{
+            console.log(data.results);
+            for (i in data.results) {
+                str += `<span><li id=${data.results[i].created}>${data.results[i].name}</li><button type="submit" float="right" id=${data.results[i].edited}>Click for films</button></span>`;   
+            }
+            content.innerHTML = str;
+        });
+
+        document.addEventListener('click',function(e){
+            y = e.target.id;
+            strr='';
+            lol='';
+            console.log(y);
+            getData().then((data=>{
+                for (i in data.results){
+                    if (y==data.results[i].created) {
+                        strr=data.results[i];
+                        console.log(strr);
+                        for (i in strr){
+                            lol += `<ol type="1">  : ${strr[i]} </ol>`
+                            document.getElementById(y).innerHTML = lol;
+                        }
+                        
+                    }
+                    if(y==data.results[i].edited) {
+                        strr=data.results[i].films;
+                        console.log(strr);
+                        filmElement=''
+                        for (i in strr) {
+                            
+                            console.log('fetch data')
+                            url = strr[i];
+                            data='';
+                                
+                            fetch(url).then((response)=> {return response.json()}).then((data)=>{
+                                console.log(data.title);
+                                filmElement += `<ol>${data.title}</ol>`
+                                document.getElementById(y).innerHTML = filmElement;
+                                
+                            });
+                            
+                        }
+                        // alert(filmElement);
+                    }
+                }
+                
+                
+            }))
+        })
+
+        }
+
+        
+
+    
+
+    </script>
+</body>
+</html>
