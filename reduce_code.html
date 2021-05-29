@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./movies.js"></script>
+    <script>
+        
+        var item=2000;
+        
+        function latest (item, yr) {
+            if (item < yr.year) {
+                item = yr.year;
+            }
+
+            return item;
+        }
+        function myFunction () {
+            console.log(movies.reduce(latest, 2000));
+            document.getElementById("myText").innerHTML = movies.reduce(latest, 2000);
+        }
+    </script>
+</head>
+<body>
+    <p>code for finding out latest movie from the list  <span id="myText"></span></p>
+    <input type="number" id="mov" placeholder="type movie year"></input>
+    <button type="button" onclick="myFunction()">click here</button>
+</body>
+</html>

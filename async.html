@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Code for learning async await</h1>
+    <button type="button" id="btn"  onclick="myFunc()">Fetch</button>
+
+    <script>
+        function myFunc(){
+        async function getData() {
+            console.log("inside the async func");
+            const response = await fetch('https://api.github.com/users');
+            console.log("git api details");
+            const users = await response.json();
+            console.log("got parsed to JSOn");
+            return users;
+        }
+
+        getData().then(data=> console.log(data));
+        console.log("last line of the code");
+    }
+    </script>
+</body>
+</html>
